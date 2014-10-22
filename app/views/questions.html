@@ -1,0 +1,7 @@
+ 
+ <div ng-init="i = $index"  ng-repeat="question in questionCtrl.quiz | orderBy: 'difficulty'">
+       <li>
+          <strong>{{$index + 1}}/{{questionCtrl.quiz.length}} {{ question.q }}</strong>
+          <answer ng-repeat="option in question.answers"> </answer>
+       </li>
+ </div>

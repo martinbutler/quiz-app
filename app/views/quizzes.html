@@ -1,0 +1,32 @@
+
+<script type ='text/ng-template' id-'questions.html'>
+
+</script>
+
+  <div>
+    <div ng-include="'views/questions.html'">
+    <span>Time remaining: {{questionCtrl.timeRemaining}}</span>
+  </div>
+
+  <span>Score: {{score}}</span>
+
+  <br/>
+<span> Question submit form: </span>
+<form name="questionForm" ng-submit="questionCtrl.addQuestion()" novalidate>
+  <span> Question: </span> {{validOrNot}}
+  <input ng-minlength=10 type = "text" ng-model="questionCtrl.newQuestion" /> <br/>
+  <span> Answer options: </span> <br/>
+
+  <div ng-repeat="option in questionCtrl.newOptions">
+    <input type = "radio" name = "correctAnswer" value="{{option.value}}"/> 
+    <input type = "text" ng-model="option.value" required/> 
+    <button>Delete</button> <br/>
+  </div>
+
+ <input type="submit" value="Add Question" ng-disabled="questionForm.$invalid || newOptions.length < 2">
+
+</form>
+
+  <button ng-click="questionCtrl.addOption()">Add an answer option</button> <br/>
+
+<br/>
